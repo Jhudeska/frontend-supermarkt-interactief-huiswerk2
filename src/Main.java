@@ -9,7 +9,6 @@ public class Main {
         int amount = 0;
         String name = "";
 
-
         Scanner scanner = new Scanner(System.in);
 
         //SuperMarkets
@@ -19,7 +18,6 @@ public class Main {
 
         List<Customer> customers = new ArrayList<>();
         Map<String,SuperMarket> superMarkets = new HashMap<>();
-
 
         Product bread = new Product("bread", 3.69, 10);
         Product fruit = new Product("fruit", 2.00, 70);
@@ -88,33 +86,40 @@ public class Main {
                         System.out.println("- Caldi");
                         superMarketChoice = scanner.nextLine().toLowerCase();
 
-//                        TODO: haal supermakrt uit map met supermarketchoice
-//                        Vervolgens haal je met superMarketChoice als key, die supermarkt uit de Map.
-//                        En die supermarkt zet je vervolgens in customer met de goToSupermaket methode.
+                        // iterate through map and Product object
+                        for (Map.Entry<String,SuperMarket> entry : superMarkets.entrySet()){
+//                            System.out.println(entry.getKey());
 
-                        if(superMarkets.containsKey(superMarketChoice)){
-                            SuperMarket selectedMarket = superMarkets.get(superMarketChoice);
-                            customer.goToSuperMarket(selectedMarket);
-                            System.out.println("Welcome to Supermarket " + selectedMarket.name);
+                            if(entry.getKey().equals(superMarketChoice)){
+                                switch (superMarketChoice) {
+                                    case "halbert eijn":
+                                        System.out.println("\nWelcome to the Supermarket " + entry.getKey());
+                                        customer.goToSuperMarket(entry.getValue());
+                                        break;
+                                    case "dumbo":
+                                        System.out.println("\nWelcome to the Supermarket " + entry.getKey());
+                                        customer.goToSuperMarket(entry.getValue());
+                                        break;
+                                    case "caldi":
+                                        System.out.println("\nWelcome to the Supermarket " + entry.getKey());
+                                        customer.goToSuperMarket(entry.getValue());
+                                        break;
+                                    default:
+                                        System.out.println("Please enter a valid supermarket from the list above.");
+                                        return;
+                                }
+
+
+                                for (Product product : entry.getValue().getProducts()) {
+                                System.out.println(" - " + product);
+                                }
+
+
                         }else {
-                            System.out.println("Supermarket doesn't exsist.");
-                        }
+//                                System.out.println("User input is invalid for " + entry.getKey());
+                            }
 
-
-                        switch (superMarketChoice){
-                            case "halbert eijn":
-                                System.out.println("\nWelcome to the Supermarket Halbert Eijn");
-                                break;
-                            case "dumbo":
-                                System.out.println("\nWelcome to the Supermarket Dumbo");
-                                break;
-                            case "caldi":
-                                System.out.println("\nWelcome to the Supermarket Caldi");
-                                break;
-                            default:
-                                System.out.println("Please enter a valid supermarket from the list above.");
-                                return;
-                        }
+                       }
 
                         break;
                     case 2:
@@ -123,10 +128,23 @@ public class Main {
                             break;
                         }
 
-                        System.out.println("Which product do you want to buy from [supermarket]?");
-                        name = scanner.nextLine().toLowerCase();
-                        System.out.println("How many do you want to buy?");
-                        amount = scanner.nextInt();
+                        for (Map.Entry<String,SuperMarket> entry : superMarkets.entrySet()){
+
+                            if(entry.getKey().equals(superMarketChoice)){
+
+                                System.out.println("\n Which product do you want to buy from "+  entry.getKey() + " ?");
+                                name = scanner.nextLine().toLowerCase();
+                                System.out.println("How many do you want to buy?");
+                                amount = scanner.nextInt();
+                            }
+
+                                for (Product product : entry.getValue().getProducts()) {
+                                    System.out.println(" - " + product);
+                                }
+
+
+                            }
+
 
 //                        TODO: search for product in product list
 //                        customer.buyItem(name, amount);

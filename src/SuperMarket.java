@@ -8,11 +8,30 @@ public class SuperMarket {
         int stock = 0;
 
     public SuperMarket(String name, List<Product> products){
-            //Check on null pointer
-            if(products == null){
-                this.name = name;
-                products = new ArrayList<Product>();
-            }
+        this.name = name;
+        //Check on null pointer
+        if (products == null) {
+            this.products = new ArrayList<>();
+        } else {
+            this.products = products;
+        }
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     public void buyItem(Product product, int amount){
@@ -53,7 +72,7 @@ public class SuperMarket {
     @Override
     public String toString() {
         return "SuperMarket{" +
-                "products=" + products +
+                "products=" + getProducts() +
                 ", name='" + name + '\'' +
                 '}';
     }
