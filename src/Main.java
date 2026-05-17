@@ -120,7 +120,6 @@ public class Main {
                             }
 
                        }
-
                         break;
                     case 2:
                         if(customer.supermarket == null) {
@@ -162,7 +161,7 @@ public class Main {
 
                             if(entry.getKey().equals(superMarketChoice)){
 
-                                //                        TODO: helper functie maken
+                                // TODO: helper functie maken
                                 System.out.println("\nWhich supermarket do you want to restock?");
                                 System.out.println("Pick one of the following:");
                                 System.out.println("- Halbert Eijn");
@@ -181,13 +180,13 @@ public class Main {
                                     System.out.println(" - " + product);
                                 }
 
+//                                TODO: iterate supermarket
 //                                for (SuperMarket super : entry.getValue().getProducts()) {
 ////                                    System.out.println(" - " + product);
 //                                     if (name.equals(super.getName())){
 //                                         super.restockItem( super, amount);
 //                                     }
 //
-//                                }
 
 
                             }
