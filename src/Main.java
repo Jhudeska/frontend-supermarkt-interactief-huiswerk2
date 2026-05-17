@@ -184,12 +184,7 @@ public class Main {
                 System.out.println("Invalid Choice.\n Enter an number (1 - 4)");
                 inSuperMarket = true;
             }
-
-//            TODO: bonus - test the fake product when jan buy an item
-//              ??
-//            jan.buyItem(product,amount);
-//            customer.buyItem(product,amount);
-
+            
         }
 
         scanner.close();
