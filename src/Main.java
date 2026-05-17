@@ -136,7 +136,7 @@ public class Main {
                                 name = scanner.nextLine().toLowerCase();
                                 System.out.println("How many do you want to buy?");
                                 amount = scanner.nextInt();
-
+                            }
 
                                 for (Product product : entry.getValue().getProducts()) {
 //                                    System.out.println(" - " + product);
@@ -145,31 +145,54 @@ public class Main {
                                      }
 
                                 }
-                            }
+//                            }
 
 
                             }
 
                         break;
                     case 3:
-//                        TODO: helper functie maken
-                        System.out.println("Which supermarket do you want to restock?");
-                        System.out.println("Pick one of the following:");
-                        System.out.println("- Halbert Eijn");
-                        System.out.println("- Dumbo");
-                        System.out.println("- Caldi");
-                        superMarketChoice = scanner.nextLine().toLowerCase();
+                        if(customer.supermarket == null) {
+                            System.out.println("\nPick a supermarket first.");
+                            break;
+                        }
 
-                        System.out.println("Which product do you want to restock in [supermarket]?");
-                        name = scanner.nextLine().toLowerCase();
-                        System.out.println("How many do you want to add?");
-                        amount = scanner.nextInt();
-//                        Roep superMarket.restockItem aan.
+                        for (Map.Entry<String,SuperMarket> entry : superMarkets.entrySet()){
+//                            System.out.println(entry.getKey());
 
-//                        Vervolgens haal je met superMarketChoice als key, die supermarkt uit de Map.
-//                        Gebruik de scanner om te vragen "Which product do you want to restock in [supermarket]?"
-//                        Gebruik de scanner om te vragen "How many do you want to add?"
-//                        Roep superMarket.restockItem aan.
+                            if(entry.getKey().equals(superMarketChoice)){
+
+                                //                        TODO: helper functie maken
+                                System.out.println("\nWhich supermarket do you want to restock?");
+                                System.out.println("Pick one of the following:");
+                                System.out.println("- Halbert Eijn");
+                                System.out.println("- Dumbo");
+                                System.out.println("- Caldi");
+                                superMarketChoice = scanner.nextLine().toLowerCase();
+
+                                System.out.println("Which product do you want to restock in [supermarket]?");
+                                name = scanner.nextLine().toLowerCase();
+                                System.out.println("How many do you want to add?");
+                                amount = scanner.nextInt();
+
+
+                                for (Product product : entry.getValue().getProducts()) {
+                                    //Roep superMarket.restockItem aan.
+                                    System.out.println(" - " + product);
+                                }
+
+//                                for (SuperMarket super : entry.getValue().getProducts()) {
+////                                    System.out.println(" - " + product);
+//                                     if (name.equals(super.getName())){
+//                                         super.restockItem( super, amount);
+//                                     }
+//
+//                                }
+
+
+                            }
+
+                        }
                         break;
                     case 4:
                         inSuperMarket = false;
@@ -184,7 +207,7 @@ public class Main {
                 System.out.println("Invalid Choice.\n Enter an number (1 - 4)");
                 inSuperMarket = true;
             }
-            
+
         }
 
         scanner.close();
