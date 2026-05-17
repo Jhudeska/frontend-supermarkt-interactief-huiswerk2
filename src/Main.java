@@ -79,7 +79,7 @@ public class Main {
                 switch (choice){
 
                     case 1:
-                        System.out.println("Which supermarket do you want to go to?");
+                        System.out.println("\nWhich supermarket do you want to go to?");
                         System.out.println("Pick one of the following:");
                         System.out.println("- Halbert Eijn");
                         System.out.println("- Dumbo");
@@ -124,33 +124,32 @@ public class Main {
                         break;
                     case 2:
                         if(customer.supermarket == null) {
-                            System.out.println("Pick a supermarket first.");
+                            System.out.println("\nPick a supermarket first.");
                             break;
                         }
 
                         for (Map.Entry<String,SuperMarket> entry : superMarkets.entrySet()){
 
-                            if(entry.getKey().equals(superMarketChoice)){
+                            if(entry.getKey().equals(superMarketChoice)) {
 
-                                System.out.println("\n Which product do you want to buy from "+  entry.getKey() + " ?");
+                                System.out.println("\nWhich product do you want to buy from " + entry.getKey() + " ?");
                                 name = scanner.nextLine().toLowerCase();
                                 System.out.println("How many do you want to buy?");
                                 amount = scanner.nextInt();
-                            }
+
 
                                 for (Product product : entry.getValue().getProducts()) {
-                                    System.out.println(" - " + product);
+//                                    System.out.println(" - " + product);
+                                     if (name.equals(product.name)){
+                                         customer.buyItem( product, amount);
+                                     }
+
                                 }
+                            }
 
 
                             }
 
-
-//                        TODO: search for product in product list
-//                        customer.buyItem(name, amount);
-//                        Gebruik de scanner om te vragen "Which product do you want to buy from [supermarket]?"
-//                        Gebruik de scanner om te vragen "How many do you want to buy?"
-//                        Roep customer.buyItem aan.
                         break;
                     case 3:
 //                        TODO: helper functie maken
