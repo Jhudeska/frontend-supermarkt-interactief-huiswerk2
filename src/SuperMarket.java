@@ -47,26 +47,15 @@ public class SuperMarket {
 
     public void restockItem(Product productName, int amount){
 
-//        for(Product product : products.name){
-//            if(productName.equals(product)) {
-//                products.buyItem(product , amount);
+        for(Product product : this.products){
+            if(productName.equals(product)) {
+//                this.products.buyItem(product , amount);
 //                System.out.println(" item ge-restocked");
-//                return;
-//            }
-//            System.out.println(this.supermarket + " does not sell " + product + " item niet ge-restocked");
-//        }
-//TODO bouwen van restock function
-
-//        SuperMarket krijgt een extra functionaliteit, namelijk een restockItem methode.
-//
-//                Deze methode lijkt op Customer.buyItem. Het heeft dezelfde parameters (String productName en int amount).
-//        Het heeft ook een vergelijkbare for-loop (maar iets anders).
-//
-//                loop door Product products in this.products.
-//                Als product.name overeenkomt met productName
-//        Dan tellen we amount bij product.amount op en returnen we de methode.
-//                Eindig de for-loop met een return wanneer het item ge-restocked is. Als restock niet lukt, omdat deze supermarkt dit item niet in de productenlijst heeft staan bijvoorbeeld, print daar dan een berichtje voor.
-
+                product.amount += amount;
+                return;
+            }
+            System.out.println(this.name + " does not sell " + product + " item niet ge-restocked");
+        }
     }
 
     @Override

@@ -169,16 +169,18 @@ public class Main {
                                 System.out.println("- Caldi");
                                 superMarketChoice = scanner.nextLine().toLowerCase();
 
-                                System.out.println("Which product do you want to restock in [supermarket]?");
+                                System.out.println("Which product do you want to restock in " +  entry.getKey() + " ?");
                                 name = scanner.nextLine().toLowerCase();
                                 System.out.println("How many do you want to add?");
                                 amount = scanner.nextInt();
+                                caldi.restockItem(popcorn, amount);
 
 
-                                for (Product product : entry.getValue().getProducts()) {
-                                    //Roep superMarket.restockItem aan.
-                                    System.out.println(" - " + product);
-                                }
+//                                for (Product product : entry.getValue().getProducts()) {
+//                                    //Roep superMarket.restockItem aan.
+//
+//                                    System.out.println(" - " + product);
+//                                }
 
 //                                TODO: iterate supermarket
 //                                for (SuperMarket super : entry.getValue().getProducts()) {
@@ -187,7 +189,17 @@ public class Main {
 //                                         super.restockItem( super, amount);
 //                                     }
 //
-
+//                                    for (Map.Entry<String,SuperMarket> entry1 : superMarkets.entrySet()) {
+////                            System.out.println(entry.getKey());
+//
+//                                        if (entry1.getKey().equals(superMarketChoice)) {
+//                                            System.out.println(" - " +  entry1.getValue().getProducts());
+//
+//                                            if (name.equals(entry1.getKey())){
+//                                         superMarkets.restockItem( entry.getValue(), amount);
+//                                     }
+//                                        }
+//                                    }
 
                             }
 
