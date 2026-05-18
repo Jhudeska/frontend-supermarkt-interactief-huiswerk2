@@ -50,7 +50,7 @@ public class SuperMarket {
         for(Product product : this.products){
             if(productName.equals(product)) {
 //                this.products.buyItem(product , amount);
-//                System.out.println(" item ge-restocked");
+                System.out.println(" item ge-restocked");
                 product.amount += amount;
                 return;
             }

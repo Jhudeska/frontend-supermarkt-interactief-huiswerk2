@@ -80,16 +80,12 @@ public class Main {
 
                     case 1:
                         System.out.println("\nWhich supermarket do you want to go to?");
-                        System.out.println("Pick one of the following:");
-                        System.out.println("- Halbert Eijn");
-                        System.out.println("- Dumbo");
-                        System.out.println("- Caldi");
+                        printSupermarketList();
                         superMarketChoice = scanner.nextLine().toLowerCase();
 
                         // iterate through map and Product object
                         for (Map.Entry<String,SuperMarket> entry : superMarkets.entrySet()){
-//                            System.out.println(entry.getKey());
-
+//
                             if(entry.getKey().equals(superMarketChoice)){
                                 switch (superMarketChoice) {
                                     case "halbert eijn":
@@ -117,6 +113,7 @@ public class Main {
 
                         }else {
 //                                System.out.println("User input is invalid for " + entry.getKey());
+                                System.out.println("Select the correct supermarket");
                             }
 
                        }
@@ -161,45 +158,19 @@ public class Main {
 
                             if(entry.getKey().equals(superMarketChoice)){
 
-                                // TODO: helper functie maken
                                 System.out.println("\nWhich supermarket do you want to restock?");
-                                System.out.println("Pick one of the following:");
-                                System.out.println("- Halbert Eijn");
-                                System.out.println("- Dumbo");
-                                System.out.println("- Caldi");
+                                printSupermarketList();
                                 superMarketChoice = scanner.nextLine().toLowerCase();
 
                                 System.out.println("Which product do you want to restock in " +  entry.getKey() + " ?");
                                 name = scanner.nextLine().toLowerCase();
                                 System.out.println("How many do you want to add?");
                                 amount = scanner.nextInt();
+
                                 caldi.restockItem(popcorn, amount);
 
-
-//                                for (Product product : entry.getValue().getProducts()) {
-//                                    //Roep superMarket.restockItem aan.
-//
-//                                    System.out.println(" - " + product);
-//                                }
-
-//                                TODO: iterate supermarket
-//                                for (SuperMarket super : entry.getValue().getProducts()) {
-////                                    System.out.println(" - " + product);
-//                                     if (name.equals(super.getName())){
-//                                         super.restockItem( super, amount);
-//                                     }
-//
-//                                    for (Map.Entry<String,SuperMarket> entry1 : superMarkets.entrySet()) {
-////                            System.out.println(entry.getKey());
-//
-//                                        if (entry1.getKey().equals(superMarketChoice)) {
-//                                            System.out.println(" - " +  entry1.getValue().getProducts());
-//
-//                                            if (name.equals(entry1.getKey())){
-//                                         superMarkets.restockItem( entry.getValue(), amount);
-//                                     }
-//                                        }
-//                                    }
+//                                SuperMarket chosenSupermarket = entry.getKey();
+//                                chosenSupermarket.restockItem(popcorn, amount);
 
                             }
 
@@ -227,5 +198,14 @@ public class Main {
 
 
 
+    }
+
+
+    //Helper-function
+    public static void printSupermarketList(){
+        System.out.println("Pick one of the following:");
+        System.out.println("- Halbert Eijn");
+        System.out.println("- Dumbo");
+        System.out.println("- Caldi");
     }
 }

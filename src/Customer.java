@@ -27,7 +27,7 @@ public class Customer {
 //       niet gebruiken.
         for(Product product : supermarket.products){
                 if(productName.equals(product)) {
-                    supermarket.buyItem(product , amount);
+                    supermarket.buyItem(product,amount);
                     return;
             }
             System.out.println(this.supermarket + " does not sell " + product);
